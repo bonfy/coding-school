@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>VueJS Tutorial</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue"></script>
+  </head>
+
+  <body>
+    <div id="vue-app">
+      <h1>{{ name }}</h1>
+      <p>Age : {{ age }}</p>
+
+      <!-- Add a event modifer .once 只能点一次 -->
+      <button v-on:click.once="add(1)">Add a year</button>
+      <button v-on:click="sub(1)">Sub a year</button>
+
+      <br />
+
+      <p>HomePage</p>
+      <a v-on:click.prevent="click" href="http://www.bonfy.im">点击跳转到Bonfy主页</a>
+    </div>
+
+    <script src="app.js" charset="utf-8"></script>
+  </body>
+</html>
