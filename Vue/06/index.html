@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>VueJS Tutorial</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue"></script>
+  </head>
+
+  <body>
+    <div id="vue-app">
+      <h1>Key Board Events</h1>
+
+      <!-- log only keyup == enter -->
+      <label>Name:</label>
+      <!--  一般写法 -->
+      <!-- <input type="text" v-on:keyup.enter="logName"> -->
+
+      <!--  @ 写法 -->
+      <input type="text" @keyup.enter="logName">
+
+      <!-- log every keyup event -->
+      <label>Age:</label>
+      <input type="text" v-on:keyup="logAge">
+
+      <!-- log keyup event == alt+enter -->
+      <label>Place:</label>
+      <input type="text" v-on:keyup.alt.enter="logPlace">
+    </div>
+
+    <script src="app.js" charset="utf-8"></script>
+  </body>
+</html>
