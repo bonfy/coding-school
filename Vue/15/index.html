@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vue Js</title>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="https://unpkg.com/vue" charset="utf-8"></script>
+
+  </head>
+  <body>
+    <div id="app-vue">
+      <h1>{{ name }}</h1>
+
+      <input type="text" name="name" ref="nameinput">
+      <button type="button" name="button" @click="readRef">ReadRef</button>
+
+      <p>Your fav food is: {{ food }}</p>
+    </div>
+  </body>
+
+  <script src="app.js" charset="utf-8"></script>
+</html>

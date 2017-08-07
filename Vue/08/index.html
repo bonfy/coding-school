@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>VueJS Tutorial</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue"></script>
+  </head>
+
+  <body>
+    <div id="vue-app">
+      <h1>Computed Properties</h1>
+
+      <button type="button" @click="a++">Add to A</button>
+      <button type="button" @click="b++">Add to B</button>
+
+      <p>A - {{a}}</p>
+      <p>B - {{b}}</p>
+
+      <!-- Methods -->
+      <h3>Methods</h3>
+      <p>Age + A = {{M_Add_A()}}</p>
+      <p>Age + B = {{M_Add_B()}}</p>
+
+      <!-- Computed Properties -->
+      <h3>Computed Properties</h3>
+      <p>Age + A = {{P_Add_A}}</p>
+      <p>Age + B = {{P_Add_B}}</p>
+
+
+    </div>
+
+    <script src="app.js" charset="utf-8"></script>
+  </body>
+</html>

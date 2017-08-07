@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vue Js</title>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="https://unpkg.com/vue" charset="utf-8"></script>
+
+  </head>
+  <body>
+    <div id="app-vue">
+      <h1>Looping v-for</h1>
+
+      <p>总结: v-for 可以解包 list ,也可以解包 object(key-value)</p>
+
+      <h2>Example 1 - No v-for</h2>
+      <p>String List id:1 string is: {{ stringlist[1] }}</p>
+      <p>object List id:1 object is: {{ objectlist[1] }}</p>
+
+      <h2>Example 2 - v-for 基本</h2>
+      <ul id="example-2">
+        <li v-for="item in stringlist">
+          {{ item }}
+        </li>
+      </ul>
+
+      <h2>Example 3 - v-for index</h2>
+      <p>注意： (item, index) 和其他语言不太一样，index放在第二位</p>
+      <ul id="example-2">
+        <li v-for="(item, index) in objectlist">
+          {{index}}. {{ item.name }} - {{ item.age }}
+        </li>
+      </ul>
+
+
+      <h2>Example 4 - v-for + template</h2>
+      <template v-for="(item, index) in objectlist">
+        <h4>{{index}}. {{ item.name }}</h4>
+        <p>{{ item.age }}</p>
+      </template>
+
+      <h2>Example 5 - v-for 解包 object</h2>
+      <template v-for="(item, index) in objectlist">
+        <span>{{index}}</span>
+        <div v-for="(val, key) in item">
+          <!--  index 在这里还是有效的-->
+          <!-- {{index}} - {{key}} - {{val}} -->
+          {{key}} - {{val}}
+        </div>
+      </template>
+    </div>
+
+    <script src="app.js" charset="utf-8"></script>
+  </body>
+</html>

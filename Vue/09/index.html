@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vue Js</title>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="https://unpkg.com/vue" charset="utf-8"></script>
+
+  </head>
+  <body>
+    <div id="app-vue">
+      <h1>Dynamic CSS Classes</h1>
+
+      <!-- 属性 -->
+      <h2>Example 1</h2>
+      <div class="" @click="available=!available" v-bind:class="{available: available}">
+        <span>Ryu</span>
+      </div>
+
+      <!-- 计算属性  + dict -->
+      <h2>Example 2</h2>
+      <button type="button" @click="available=!available">change available</button>
+      <button type="button" @click="nearby=!nearby">change nearby</button>
+      <div v-bind:class="computedClass">
+        <span>Ryu</span>
+      </div>
+
+    </div>
+    <script src="app.js" charset="utf-8"></script>
+  </body>
+</html>

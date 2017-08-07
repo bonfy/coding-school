@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vue Js</title>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="https://unpkg.com/vue" charset="utf-8"></script>
+
+  </head>
+  <body>
+    <div id="app-vue">
+      <h1>conditionals v-if and v-show</h1>
+
+
+      <p>差别是： v-if 是 不显示， v-show 是 display:none</p>
+
+      <p>Tab Status: </p>
+      <p>Error {{error}}</p>
+      <p>Success {{success}}</p>
+
+
+      <button type="button" @click="error = !error">Toggle Error</button>
+      <button type="button" @click="success = !success">Toggle Success</button>
+
+      <h2>v-if</h2>
+      <!-- v-if -->
+      <p v-if="error">There is an error occured!</p>
+      <!-- 只有 error false and success true 才显示 -->
+      <p v-else-if="success">Oops! Succeed!</p>
+
+      <h2>v-show</h2>
+      <!-- v-show -->
+      <p v-show="error">There is an error occured!</p>
+      <p v-show="!error && success">Oops! Succeed!</p>
+    </div>
+
+    <script src="app.js" charset="utf-8"></script>
+  </body>
+</html>
