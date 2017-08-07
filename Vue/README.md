@@ -33,6 +33,7 @@
 
 > Vue cli
 
+* 16 - [vue-cli](https://github.com/bonfy/coding-school/tree/master/Vue/16)
 
 ## Tips
 
