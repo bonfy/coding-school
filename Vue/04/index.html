@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vue Js</title>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="https://unpkg.com/vue" charset="utf-8"></script>
+
+  </head>
+  <body>
+    <div id="app-vue">
+      <h1>{{ name }}</h1>
+      <p> {{ age }} Yeas Old</p>
+
+      <!-- Buttons 1 -->
+
+      <button type="button" name="button" v-on:click="age++">Add a year</button>
+      <button type="button" name="button" v-on:click="age--">Sub a year</button>
+
+      <!-- Buttons 2 -->
+      <br/>
+      <button type="button" name="button" v-on:click="add(1)">Add one year</button>
+      <button type="button" name="button" v-on:click="sub(1)">Sub one year</button>
+      <button type="button" name="button" v-on:dblclick="add(10)">Add 10 year(double click)</button>
+      <button type="button" name="button" v-on:dblclick="sub(10)">Sub 10 year(double click)</button>
+
+      <br/>
+
+      <div id="can" v-on:mousemove="moveXY">X:{{x}} - Y:{{y}}</div>
+
+    </div>
+
+    <script src="app.js" charset="utf-8"></script>
+  </body>
+</html>

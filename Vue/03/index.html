@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vue Js</title>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="https://unpkg.com/vue" charset="utf-8"></script>
+
+  </head>
+  <body>
+    <div id="app-vue">
+      <h1>{{ name }}</h1>
+
+      <!-- v-bind 用于绑定标签的属性-->
+      <p> 写法1 </p>
+      <a v-bind:href="site">Baidu Website</a>
+
+      <!--  另一种写法 也 OK-->
+      <p> 写法2 </p>
+      <a :href="site">Baidu Website</a>
+      <input type="text" :name="name" :value="job">
+
+      <!-- HTML Tag -->
+      <p>HTML Tag 写法</p>
+      <p v-html="siteTag"></p>
+
+      <div v-html="siteTag"></div>
+    </div>
+
+    <script src="app.js" charset="utf-8"></script>
+  </body>
+</html>

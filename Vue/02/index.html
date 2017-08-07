@@ -9,7 +9,17 @@
   </head>
   <body>
     <div id="app-vue">
-      <h1>{{ name }}</h1>
+      <h1>Name: {{ name }}</h1>
+
+      <p>Job: {{ job }}</p>
+
+      <p>Say: {{greet()}}</p>
+
+      <p>Say: {{greetTime('Night')}}</p>
+
+      <p>Say: {{greetData()}} </p>
+
+      <p>Say: {{greetArrow()}} </p>
     </div>
 
     <script src="app.js" charset="utf-8"></script>
