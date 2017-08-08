@@ -34,6 +34,10 @@
 > Vue cli
 
 * 16 - [vue-cli](https://github.com/bonfy/coding-school/tree/master/Vue/16)
+* 17 - [vue File and Root Component](https://github.com/bonfy/coding-school/tree/master/Vue/17)
+* 18 - [Nesting Components](https://github.com/bonfy/coding-school/tree/master/Vue/18)
+* 19 - [CSS Scoped](https://github.com/bonfy/coding-school/tree/master/Vue/19)
+* 20 - [Nesting Components Example](https://github.com/bonfy/coding-school/tree/master/Vue/20)
 
 ## Tips
 
