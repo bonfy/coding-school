@@ -38,7 +38,11 @@
 * 18 - [Nesting Components](https://github.com/bonfy/coding-school/tree/master/Vue/18)
 * 19 - [CSS Scoped](https://github.com/bonfy/coding-school/tree/master/Vue/19)
 * 20 - [Nesting Components Example](https://github.com/bonfy/coding-school/tree/master/Vue/20)
-
+* 21 - [Props](https://github.com/bonfy/coding-school/tree/master/Vue/21)
+* 22 - [Primite & Reference](https://github.com/bonfy/coding-school/tree/master/Vue/22)
+* 23 - [Events (child to parent)](https://github.com/bonfy/coding-school/tree/master/Vue/23)
+* 24 - [Event Bus](https://github.com/bonfy/coding-school/tree/master/Vue/24)
+* 25 - [Life Cycle Hooks](https://github.com/bonfy/coding-school/tree/master/Vue/24)
 ## Tips
 
 ### 计算属性 Computed Properties
@@ -50,3 +54,18 @@
 ### @click
 
 理论上来说 @click="method()" 里面是一个函数，但是 其实 @click="method" 也是可以的，所以javascript还是比较随意的，个人感觉
+
+### Primite & Reference
+
+Primite: String, Number, Boolean, Null and Undefined ES6 add Symbol
+Reference: Array & Object, Maybe Function
+
+* 原生 - 修改的只是拷贝，需要 事件驱动去更新
+* 派生 - 修改了 全局影响
+
+### Event Bus
+
+Event Bus is a Vue Instance
+```js
+const bus = new Vue()
+```
