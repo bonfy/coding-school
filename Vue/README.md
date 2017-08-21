@@ -42,7 +42,10 @@
 * 22 - [Primite & Reference](https://github.com/bonfy/coding-school/tree/master/Vue/22)
 * 23 - [Events (child to parent)](https://github.com/bonfy/coding-school/tree/master/Vue/23)
 * 24 - [Event Bus](https://github.com/bonfy/coding-school/tree/master/Vue/24)
-* 25 - [Life Cycle Hooks](https://github.com/bonfy/coding-school/tree/master/Vue/24)
+* 25 - [Life Cycle Hooks](https://github.com/bonfy/coding-school/tree/master/Vue/25)
+* 26 - [Slots](https://github.com/bonfy/coding-school/tree/master/Vue/26)
+* 27 - [Dynamic Components](https://github.com/bonfy/coding-school/tree/master/Vue/27)
+* 28 - [Input Binding(create blog)](https://github.com/bonfy/coding-school/tree/master/Vue/28)
 ## Tips
 
 ### 计算属性 Computed Properties
