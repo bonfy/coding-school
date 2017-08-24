@@ -1,0 +1,197 @@
+* Django研究
+
+** 安装
+
+#+begin_src bash
+$ python3 -m venv env
+$ source env/bin/activate
+$ pip3 install django
+#+end_src
+
+** 新建项目
+
+#+begin_src bash
+$ django-admin startproject mysite
+
+$ cd mysite
+$ python3 manager.py runserver
+
+$ python3 manage.py runserver 0:8000 # for 0.0.0.0
+#+end_src
+
+** Create Polls App
+
+#+begin_src bash
+$ python3 manage.py startapp polls
+#+end_src
+
+
+** Write First View
+
+*** edit polls/view.py
+  #+begin_src python
+    from django.http import HttpResponse
+
+    def index(request):
+        return HttpResponse("Hello world")
+  #+end_src
+
+*** add polls/urls.py
+  #+BEGIN_SRC python
+  from django.conf.urls import url
+
+  from . import views
+
+  urlpatterns = [
+      url(r'^$', views.index, name='index'),
+  ]
+  #+END_SRC
+
+
+*** edit mysite/settings.py
+#+begin_src python
+from django.conf.urls import include, url
+from django.contrib import admin
+
+urlpatterns = [
+    url(r'^polls/', include('polls.urls')),
+    url(r'^admin/', admin.site.urls),
+]
+#+end_src
+
+** Lesson2 - Writing your first Django app, part 2 
+
+*** django Mysql 支持
+**** edit mysite/settings.py
+#+begin_src python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'bonfy',    ## 数据库名称
+        'USER': 'root',
+        'PASSWORD': '',    ## 安装 mysql 数据库时，输入的 root 用户的密码
+        'HOST': '127.0.0.1',
+    }
+}
+#+end_src
+
+**** 安装依赖 并 执行migrate
+#+begin_src cmd
+# 安装 mysqlclient or MySQL-python
+$ pip3 install mysqlclient  #我安装 mysql-python 出错
+
+$ python3 manage.py migrate 
+# 查看数据库 发现创建了 很多 user & group 的表
+#+end_src
+
+*** Creating models
+**** 在 polls／models.py 中增加model
+#+begin_src python
+from django.db import models
+
+
+class Question(models.Model):
+    question_text = models.CharField(max_length=200)
+    pub_date = models.DateTimeField('date published')
+
+
+class Choice(models.Model):
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    choice_text = models.CharField(max_length=200)
+    votes = models.IntegerField(default=0)
+#+end_src
+
+**** 将 polls.apps.PollsConfig 加入 settings
+#+begin_src python
+INSTALLED_APPS = [
+    'polls.apps.PollsConfig',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+#+end_src
+
+**** 执行命令创建 table
+#+begin_src cmd
+# telling Django that you’ve made some changes to your models
+$ python3 manage.py makemigrations polls
+
+# The sqlmigrate command doesn’t actually run the migration on your database
+# it just prints it to the screen so that you can see what SQL Django thinks is required.
+# 这步其实可以跳过
+$ python3 manage.py sqlmigrate polls 0001
+
+# 执行SQL创建
+$ python3 manage.py migrate
+#+end_src
+
+
+**** Django shell 控制创建数据
+
+#+begin_src cmd
+$ python3 manage.py shell #感觉类似ipython
+
+>>> import django
+>>> django.setup()
+
+>>> from polls.models import Question, Choice   # Import the model classes we just wrote.
+
+# No questions are in the system yet.
+>>> Question.objects.all()
+<QuerySet []>
+
+>>> from django.utils import timezone
+>>> q = Question(question_text="What's new?", pub_date=timezone.now())
+
+# Save the object into the database. You have to call save() explicitly.
+>>> q.save()
+
+# Now it has an ID. Note that this might say "1L" instead of "1", depending
+# on which database you're using. That's no biggie; it just means your
+# database backend prefers to return integers as Python long integer
+# objects.
+>>> q.id
+1
+
+# Access model field values via Python attributes.
+>>> q.question_text
+"What's new?"
+>>> q.pub_date
+datetime.datetime(2012, 2, 26, 13, 0, 0, 775217, tzinfo=<UTC>)
+
+# Change values by changing the attributes, then calling save().
+>>> q.question_text = "What's up?"
+>>> q.save()
+
+# objects.all() displays all the questions in the database.
+>>> Question.objects.all()
+<QuerySet [<Question: Question object>]>
+#+end_src
+
+
+*** createsuperuser
+
+**** 命令行创建管理员账户
+
+#+begin_src cmd
+$ python3 manage.py createsuperuser
+
+$ python3 manage.py runserver # 就可以输入刚才的用户名密码登陆 管理了
+#+end_src
+
+**** 将 polls 的model 加入到管理页面
+
+edit polls/admin.py
+#+begin_src python
+from django.contrib import admin
+
+from .models import Question
+
+admin.site.register(Question)
+#+end_src
+
+
+
