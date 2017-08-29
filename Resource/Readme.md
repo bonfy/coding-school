@@ -7,6 +7,12 @@
 
 ## Golang
 
+* [Just for func](https://www.youtube.com/watch?v=Vg603e9C-Vg&list=PL64wiCrrxh4Jisi7OcCJIUpguV_f5jGnZ)
+
+## Javascript
+
+* [Fun Fun Function](https://www.youtube.com/watch?v=OQZKh8Bjdv0&list=PL0zVEGEvSaeFSwPn06GKArptSxiP1Gff8)
+
 ## Vim
 
 ## Emacs
