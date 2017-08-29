@@ -12,7 +12,6 @@ func intSeq() func() int {
 	i := 0
 	return func() int {
 		i += 1
-		fmt.Println("Now i is ", i)
 		return i
 	}
 }
@@ -23,7 +22,6 @@ func main() {
 	// `nextInt`。这个函数的值包含了自己的值 `i`，这样在每
 	// 次调用 `nextInt` 时都会更新 `i` 的值。
 	nextInt := intSeq()
-	fmt.Println("初始化结束")
 
 	// 通过多次调用 `nextInt` 来看看闭包的效果。
 	fmt.Println(nextInt())
