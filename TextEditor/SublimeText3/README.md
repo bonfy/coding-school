@@ -30,3 +30,62 @@ SideBar 显得太小，所以要配置一个稍微大的字体
 1. 安装 PackageResourceViewer: command+shift+p -> Install package -> prv
 2. Open Resource: command+shift+p -> Open Resource -> Material Theme -> Material-Theme-Darker.sublime-theme
 3. 修改 sidebar_label 增加 "font.size": 15
+
+User Settings:
+```
+{
+    "auto_complete": true,
+    "close_windows_when_empty": true,
+    "color_scheme": "Packages/User/Color Highlighter/themes/Tomorrow-Night-Italics.tmTheme",
+    "draw_white_space": "all",
+    "find_selected_text": true,
+    "fold_buttons": false,
+    "folder_exclude_patterns":
+    [
+        ".svn",
+        ".git",
+        ".hg",
+        "CVS",
+        "_build",
+        "dist",
+        "build",
+        "site"
+    ],
+    "font_face": "Operator Mono SSm Light",
+    "font_options":
+    [
+        "subpixel_antialias"
+    ],
+    "font_size": 15.0,
+    "highlight_line": true,
+    "hot_exit": false,
+    "ignored_packages":
+    [
+        "GitSavvy",
+        "RestructuredText",
+        "SublimeLinter-flake8",
+        "Vintage"
+    ],
+    "material_theme_accent_orange": true,
+    "material_theme_accent_scrollbars": true,
+    "material_theme_appbar_orange": true,
+    "material_theme_arrow_folders": true,
+    "material_theme_bullet_tree_indicator": true,
+    "material_theme_compact_sidebar": true,
+    "material_theme_contrast_mode": true,
+    "material_theme_small_statusbar": true,
+    "material_theme_small_tab": true,
+    "material_theme_tree_headings": false,
+    "remember_open_files": false,
+    "rulers":
+    [
+        72,
+        79,
+        100
+    ],
+    "theme": "Material-Theme-Darker.sublime-theme",
+    "translate_tabs_to_spaces": true,
+    "trim_trailing_white_space_on_save": true
+}
+
+```
