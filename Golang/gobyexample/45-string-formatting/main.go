@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"os"
 )
+
 // import "os"
 
 type point struct {

@@ -42,7 +42,6 @@ func main() {
 	mapB, _ := json.Marshal(mapD)
 	fmt.Println(string(mapB))
 
-
 	// JSON 包可以自动的编码你的自定义类型。编码仅输出可
 	// 导出的字段，并且默认使用他们的名字作为 JSON 数据的
 	// 键。
