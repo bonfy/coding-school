@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>Hello</title>
+        <script
+          src="http://code.jquery.com/jquery-3.2.1.min.js"
+          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+          crossorigin="anonymous">
+        </script>
+        <script>
+
+            var click_li = function() {
+                console.log('博客园-FlyElephant');
+            }
+
+            $(function() {
+                  $('.content').append('<li>FlyElephant</li>');
+
+                  $('.content li').click(click_li);
+                  $('.content li').on('click', click_li);
+
+                  /*通用*/
+                  $(document).on('click', '.content li', function() {
+                      console.log('keso');
+                  });
+
+                  $('.test').click(function() {
+                      $('.content').append('<li>keso</li>');
+                  });
+              });
+        </script>
+    </head>
+    <body>
+        <ul class="content">
+        </ul>
+        <span class="test">测试</span>
+    </body>
+</html>
