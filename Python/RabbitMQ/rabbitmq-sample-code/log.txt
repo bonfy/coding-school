@@ -1,0 +1,4 @@
+ [*] Waiting for logs. To exit press CTRL+C
+ [x] b'hello'
+ [x] b'hello world'
+ [x] b'hello world nihao me'
