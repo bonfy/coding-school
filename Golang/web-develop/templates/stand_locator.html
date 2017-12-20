@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lemonade Stand Supply</title>
+<link href="/css/app.css" rel="stylesheet" />
+</head>
+<body>
+	<header class="row">
+		<div class="columns small-2">
+			<div class="logo-container">
+				<div class="logo"></div>
+				<h1>Lemonade Stand Supply</h1>
+			</div>
+		</div>
+		<div class="columns small-10">
+			<div class="row">
+				<div class="columns small-1 small-offset-9">
+					<a class="secondary-color tiny" href="/html/login.html"> login
+					</a>
+				</div>
+				<div class="columns small-2">
+					<img src="/img/cart_small.png" alt="cart" />
+				</div>
+			</div>
+			<div class="row">
+				<nav class="columns small-6 small-offset-6">
+					<div class="row">
+						<div class="columns small-3 item">
+							<a href="/html/home.html">Home</a>
+						</div>
+						<div class="columns small-3 item">
+							<a href="/html/shop.html">Shop</a>
+						</div>
+						<div class="columns small-6 item">
+							<a href=".">Stand Locator</a>
+						</div>
+					</div>
+				</nav>
+			</div>
+		</div>
+	</header>
+	<div class="row stand-locator">
+		<div class="columns small-12">
+			<div class="row">
+				<div class="columns small-6 text-right">Zip Code</div>
+				<div class="columns small-3">
+					<input type="text" name="zipCode" id="zipCode" />
+				</div>
+				<div class="columns small-3">
+					<button class="small" id="search">Find</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="columns small-8 small-offset-2" id="map-canvas"></div>
+				<script type="text/javascript"
+					src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3oXovazwNwsvGi8osRqAs93xZVfR2O2o">
+					
+				</script>
+				<script type="text/javascript">
+					function initialize() {
+						var mapOptions = {
+							center : {
+								lat : 37.422,
+								lng : -122.084058
+							},
+							zoom : 14
+						};
+						var map = new google.maps.Map(document
+								.getElementById('map-canvas'), mapOptions);
+
+						document.getElementById("search").addEventListener(
+								"click",
+								function(e) {
+									var coords = [ {
+										lat : 37.409,
+										lng : -122.06,
+										title : "Bobby's stand"
+									}, {
+										lat : 37.4092,
+										lng : -122.061,
+										title : "Macy's stand"
+									}, {
+										lat : 37.4094,
+										lng : -122.06,
+										title : "Juan's stand"
+									}, {
+										lat : 37.41,
+										lng : -122.065,
+										title : "Allison's stand"
+									}, {
+										lat : 37.415,
+										lng : -122.07,
+										title : "Chen's stand"
+									}, {
+										lat : 37.4217,
+										lng : -122.075,
+										title : "Matthew's stand"
+									}, {
+										lat : 37.4206,
+										lng : -122.08,
+										title : "Alice's stand"
+									}, {
+										lat : 37.4205,
+										lng : -122.083,
+										title : "Kara's stand"
+									}, {
+										lat : 37.414,
+										lng : -122.09,
+										title : "Fred's stand"
+									}, {
+										lat : 37.412,
+										lng : -122.09,
+										title : "Jake's stand"
+									}, {
+										lat : 37.41,
+										lng : -122.093,
+										title : "Wallace's stand"
+									}, {
+										lat : 37.416,
+										lng : -122.095,
+										title : "Gromit's stand"
+									}, {
+										lat : 37.41,
+										lng : -122.1,
+										title : "Kirk's stand"
+									}, {
+										lat : 37.41,
+										lng : -122.102,
+										title : "Lorelei's stand"
+									}, {
+										lat : 37.412,
+										lng : -122.099,
+										title : "Rebecca's stand"
+									}, {
+										lat : 37.407,
+										lng : -122.1025,
+										title : "Chris's stand"
+									}, {
+										lat : 37.423,
+										lng : -122.1025,
+										title : "Carson's stand"
+									} ];
+
+									coords.forEach(function(coord) {
+										var marker = new google.maps.Marker({
+											position : new google.maps.LatLng(
+													coord.lat, coord.lng),
+											title : coord.title
+										});
+
+										marker.setMap(map);
+									});
+								}, false);
+					}
+					google.maps.event
+							.addDomListener(window, 'load', initialize);
+				</script>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="columns small-12 text-right social-media">
+			<span>Follow us</span> <img src="/img/social_media.png"
+				alt="social media" />
+		</div>
+	</div>
+</body>
+</html>
