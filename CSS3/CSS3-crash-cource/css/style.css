@@ -1,0 +1,147 @@
+/*
+* {
+     
+    // 针对所有元素， 移除默认的 margin & padding
+    // 比如 h1 本身就有 padding
+    
+    margin: 0;
+    padding: 0;
+}
+*/
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #555555;
+    /* font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: normal; */
+    font: normal 16px Arial, Helvetica, sans-serif;
+    line-height: 1.6em;
+    margin: 0;
+}
+
+.container {
+    /* 设置percent 来 relactive*/
+    width: 80%;
+    /* 设置居中 */
+    margin: auto;
+}
+
+.clr {
+    clear: both;
+}
+
+.box-1 {
+    background-color: #333;
+    color: #fff;
+    /* 设置边框 */
+    border: 5px red solid;
+    /* padding 内部的距离 */
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    /* same as above */
+    padding: 20px;
+    /* margin 外部的距离 */
+    margin-top: 20px;
+    margin-right: 0;
+    margin-bottom: 20px;
+    margin-left: 0;
+    /* same as above */
+    margin: 20px 0;
+}
+
+.box-1 h1 {
+    font-family: Tahoma;
+    font-weight: 800;
+    font-style: italic;
+    /* 下划线 */
+    text-decoration: underline;
+    /* 全部大写 */
+    text-transform: uppercase;
+    /* 字母间距 */
+    letter-spacing: 0.2em;
+    /* 单词间距 */
+    word-spacing: 1em;
+}
+
+.box-2 {
+    border: 3px dotted #ccc;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.categories {
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    padding: 10px;
+    /* margin: 20px 0; */
+}
+
+.categories h2 {
+    text-align: center;
+}
+
+.categories ul {
+    padding: 0;
+    /* 前面的点 
+    list-style: square;
+    */
+    list-style: none;
+}
+
+.categories li {
+    padding-bottom: 6px;
+    border-bottom: 1px solid #000;
+}
+
+.categories ul :hover {
+    color: blue;
+}
+
+.categories ul :active {
+    color: green;
+}
+
+.categories ul :visited {
+    color: #000;
+}
+
+.block {
+    float: left;
+    width: 33.3%;
+    border: 1px solid #ccc;
+    padding: 20px;
+    /* apply border padding to width
+       将 border 和 padding的宽度 弄进width里*/
+    box-sizing: border-box;
+}
+
+#main-block {
+    float: left;
+    width: 70%;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+#sidebar {
+    float: right;
+    width: 30%;
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.p-box {
+    width: 800px;
+    height: 500px;
+    border: 1px solid #000;
+    margin-top: 30px;
+}
