@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajax 4 - Forms</title>
+</head>
+
+<body>
+    <button id="btn">Get Name</button>
+
+    <br>
+
+    <h2>Get Form</h2>
+    <form action="http://localhost:5000/hello" method="GET">
+        <input type="text" name="name">
+        <input type="submit" value="Submit">
+    </form>
+    <br>
+
+    <h2>Get Ajax Form</h2>
+    <form id="getForm">
+        <input type="text" name="name" id="name1">
+        <input type="submit" value="Submit">
+    </form>
+
+    <br>
+
+    <h2>Post Ajax Form</h2>
+
+    <form id="postForm">
+        <input type="text" name="name" id="name2">
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+
+<script>
+    document.getElementById('btn').addEventListener('click', getName);
+    document.getElementById('getForm').addEventListener('submit', getName);
+    document.getElementById('postForm').addEventListener('submit', postName);
+
+    function getName(e) {
+        e.preventDefault();
+
+        var name = document.getElementById('name1').value;
+        console.log(name);
+        var xhr = new XMLHttpRequest();
+
+        xhr.open('GET', 'http://localhost:5000/hello?name=' + name, true);
+
+        xhr.onload = function () {
+            if (this.status == 200) {
+                console.log(this.responseText);
+            }
+        }
+
+        xhr.send()
+    }
+
+    function postName(e) {
+        e.preventDefault();
+
+        var name = document.getElementById('name2').value;
+        var params = "name=" + name;
+        console.log(params);
+        var xhr = new XMLHttpRequest();
+
+        xhr.open('POST', 'http://localhost:5000/hello', true);
+        // form
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        // xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onload = function () {
+            if (this.status == 200) {
+                console.log(this.responseText);
+            }
+        }
+        xhr.send(params)
+    }
+</script>
+
+</html>

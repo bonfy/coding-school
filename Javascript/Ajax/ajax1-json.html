@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajax 2 - Local Json</title>
+</head>
+
+<body>
+    <button id="bt1">Get User</button>
+    <button id="bt2">Get Users</button>
+    <br>
+
+    <h1>User</h1>
+    <div id="user"></div>
+
+    <h1>Users</h1>
+    <div id="users"></div>
+</body>
+
+
+<script>
+    // 如果用 var 定义，必须在使用之前
+    // 如果是 function loadUser 就可以是全局的
+    var loadUser = function () {
+        console.log('click loadUser');
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'user.json', true);
+
+        xhr.onload = function () {
+            if (this.status == 200) {
+                var user = JSON.parse(this.responseText);
+                console.log(typeof (user));
+                console.log(user.name);
+
+                var output = '';
+
+                output += '<ul>' +
+                    '<li>ID:' + user.id + '</li>' +
+                    '<li>Name:' + user.name + '</li>' +
+                    '<li>Email:' + user.email + '</li>' +
+                    '</ul>';
+
+                document.getElementById('user').innerHTML = output;
+            }
+        }
+
+        xhr.send()
+    }
+
+    var loadUsers = function () {
+        console.log('click loadUsers');
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'users.json', true);
+
+        xhr.onload = function () {
+            if (this.status == 200) {
+                var users = JSON.parse(this.responseText);
+                console.log(typeof (users));
+                console.log(user.name);
+
+                var output = '';
+                for (var i in users) {
+                    console.log(i);
+                    output += '<ul>' +
+                        '<li>ID:' + users[i].id + '</li>' +
+                        '<li>Name:' + users[i].name + '</li>' +
+                        '<li>Email:' + users[i].email + '</li>' +
+                        '</ul>';
+                }
+                document.getElementById('users').innerHTML = output;
+            }
+        }
+
+        xhr.send()
+    }
+
+    document.getElementById('bt1').addEventListener("click", loadUser);
+    document.getElementById('bt2').addEventListener("click", loadUsers);
+</script>
+
+</html>

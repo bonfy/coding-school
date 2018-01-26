@@ -1,0 +1,12 @@
+{
+    "name": "html-playground",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "start": "./node_modules/.bin/browser-sync --no-notify --files='*.html, *.css, *.js'"
+    },
+    "dependencies": {
+        "browser-sync": "^2.23.6"
+    }
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajax-1 Text File</title>
+</head>
+
+<body>
+    <button id="button">Get Text File</button>
+    <br>
+    <div id="text"></div>
+    <script>
+        document.querySelector("#button").addEventListener('click', loadText);
+
+        function loadText() {
+            console.log('button clicked');
+
+            // Create XHR Object
+            var xhr = new XMLHttpRequest();
+            // OPEN - type url/file, async
+            // console.log(xhr);
+            xhr.open('GET', 'sample2.txt', true);
+
+            console.log('READYSTATE:', xhr.readyState);
+
+            // OPTIONAL - used for loaders
+            // like loding page
+            xhr.onprogress = function () {
+                console.log('ONPROGRESS:', this.readyState);
+            }
+
+            // onreadystatechange 是能记录所有的状态
+            /*
+            xhr.onreadystatechange = function () {
+                console.log(this.readyState);
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log(this.responseText);
+                }
+            }
+            */
+
+            // Error Handling
+            xhr.onerror = function () {
+                console.log('Request Error');
+            }
+
+            // OnLoad 是只关心 返回结果
+
+            xhr.onload = function () {
+                console.log('ONLOAD', this.readyState);
+                if (this.status == 200) {
+                    console.log(this.responseText);
+                    // console.log(this.responseType);
+                    document.getElementById('text').innerHTML = this.responseText;
+                } else if (this.status = 404) {
+                    document.getElementById('text').innerHTML = "NOT FOUND";
+                }
+            }
+
+            // SEND request
+            xhr.send();
+        }
+
+        // readystate Values:
+        // 0: request not established
+        // 1. server connection established
+        // 2. request received
+        // 3. processing request
+        // 4. request finished and response is ready
+    </script>
+</body>
+
+</html>
