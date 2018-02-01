@@ -11,7 +11,7 @@ WORKDIR /app
 ADD . /app
 
 # 设置时区
-RUN echo "Asia/Shanghai" > /etc/timezone; 
+RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --trusted-host pypi.python.org -r req.txt
