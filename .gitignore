@@ -13,3 +13,5 @@ __pycache__/
 *$py.class
 
 .ipynb_checkpoints/
+
+.envrc
