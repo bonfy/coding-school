@@ -30,5 +30,67 @@ SMTP: TCP 25
 * MX    (MAIL) 可以有多个
 * NS
 
+### 访问VPS
 
+VPS 是现在比较多的 托管方式，其实就是  云上的 虚拟机（virtualbox， vmware之类的)
+
+* SSH
+* SFTP
+
+
+### Telnet 访问 80端口
+
+```cmd
+# 端口 21
+telnet www.baidu.com 
+
+# 端口 80
+# 有些不指定 host 会被禁
+telnet www.baidu.com 80
+GET / HTTP/1.1
+Host: www.baidu.com
+
+```
+
+不指定 HOST 不能放回是因为 它很大可能是放在 VPS,不指定 HOST，它不知道放回哪个 `/` 网页
+
+### nslookup
+
+```cmd
+$ nslookup harvard.edu
+Server:		10.110.0.15
+Address:	10.110.0.15#53
+
+Non-authoritative answer:
+Name:	harvard.edu
+Address: 23.22.75.102
+
+
+$ nslookup cnn.com
+Server:		10.110.0.15
+Address:	10.110.0.15#53
+
+Non-authoritative answer:
+Name:	cnn.com
+Address: 151.101.1.67
+Name:	cnn.com
+Address: 151.101.65.67
+Name:	cnn.com
+Address: 151.101.193.67
+Name:	cnn.com
+Address: 151.101.129.67
+```
+
+
+### 修改 /etc/hosts
+
+在最后加入这条，就会将 davidnews.com 定向到 你设置的 ip
+
+所以...你懂的（相当于 优先级最高的 dns）
+
+相当于 301
+
+```
+xxx.xxx.xxx.xxx  davidnews.com
+```
 
